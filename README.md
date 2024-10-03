@@ -31,7 +31,7 @@ Este projeto é uma aplicação Node.js que distribui leads entre escritórios d
 
 Antes de começar, você precisará ter:
 
-- [Node.js](versão 14 ou superior)
+- [Node.js](https://nodejs.org/pt)-> versão 14 ou superior 
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 - [MongoDB Compass](https://www.mongodb.com/try/download/compass)
 
