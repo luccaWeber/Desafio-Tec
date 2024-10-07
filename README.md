@@ -87,25 +87,24 @@ Clique em "import Data" e depois selecione o arquivo em formato JSON ou CSV cont
 
 **Distribuir Leads**
 - Método: POST
-- Descrição: Distribui os leads com status "A distribuir" entre os escritórios definidos. O escritório líder é escolhido aleatoriamente para o primeiro lote, e a distribuição alterna entre os escritórios nos lotes subsequentes.
+- Descrição: Distribui os leads com status "A distribuir" entre os escritórios definidos e o numero de leads por lote. O escritório líder é escolhido aleatoriamente para o primeiro lote, e a distribuição alterna entre os escritórios nos lotes subsequentes.
 - Endpoint: /api/leads/distribuir
-- Corpo da Requisição (opcional):
+- Corpo da Requisição:
 {
-  "loteSize": 5, // (opcional) Tamanho do lote a ser distribuído (padrão: 5)
-  "distribution": { // (opcional) Distribuição padrão entre os escritórios
-    "X": 3,
-    "Y": 2
-  }
-} 
+  "loteSize": 5,
+  "offices": ["X", "Y"]
+}
 
-**Distribuir Leads**
+**Listar Leads**
 - Método: GET
 - Endpoint: /api/leads
-- Descrição: Retorna todos os leads cadastrados na base de dados.
+- Parametro (opcional): 
+  - status = ("Adistribuir" ou "Finalizado")
+- Descrição: Retorna os leads cadastrados na base de dados, caso utilize o parâmetro de status, separa as informações de acordo com o status da distribuição.
 
 **Listar Leads por Escritório**
 - Método: GET
-- Endpoint: /api/leads/office/:office
-- Parâmetros:
-- office: O escritório para o qual você deseja listar os leads (por exemplo, X ou Y).
+- Endpoint: /api/leads/office/
+- Parâmetros (obrigatório):
+  - office = ("nome do escritório")
 - Descrição: Retorna todos os leads atribuídos ao escritório especificado.
